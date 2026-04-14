@@ -18,7 +18,7 @@ jobs:
         run: docker history imageku:latest
 
       - name: Login to GitHub Registry
-        run: echo ${{ secrets.TOKEN_GITHUB }} | docker login ghcr.io -u dzaky2008 --password-stdin
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u dzaky2008 --password-stdin
 
       - name: Tag image
         run: docker tag imageku ghcr.io/dzaky2008/imageku:latest
